@@ -1,6 +1,6 @@
 # server
 
-This template wiil show you how to run server side of the game.
+This template will show you how to run server side of the game.
 
 ## Project Setup
 
