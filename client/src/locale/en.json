@@ -1,0 +1,15 @@
+{
+    "header": "Minesweeper",
+    "topScore": "Top Score",
+    "seconds": "seconds",
+    "scoreboardButton": "ScoreBoard",
+    "username": "Username",
+    "mines": "Mines",
+    "difficulty": "Difficulty",
+    "disclaimer": "(If you dont enter username your score wont be saved)",
+    "startButton": "Start",
+    "difficulties": ["Select Difficulty", "Easy", "Medium", "Hard"],
+    "gameover": "Game Over",
+    "playagainButton": "Play Again",
+    "congratulate": "Congratulations"
+}

@@ -1,0 +1,15 @@
+{
+    "header": "Mayın Tarlası",
+    "topScore": "En yüksek skor",
+    "seconds": "saniye",
+    "scoreboardButton": "Skor Tabelası",
+    "username": "Kullanıcı adı",
+    "mines": "Mayınlar",
+    "difficulty": "Zorluk",
+    "disclaimer": "(Eğer kullanıcı adı girmezseniz skorunuz kaydedilmez)",
+    "startButton": "Başla",
+    "difficulties": ["Zorluk Seç", "Kolay", "Orta", "Zor"],
+    "gameover": "Oyun Bitti",
+    "playagainButton": "Tekrar Oyna",
+    "congratulate": "Congratulations"
+}
