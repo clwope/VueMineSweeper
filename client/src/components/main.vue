@@ -6,7 +6,6 @@
             <p v-if="this.$store.state.diff !== ''">{{ $t('difficulty') }}: {{ this.$store.state.diff  }}</p>
         </div>
         <div class="board">
-            <!--<block-part v-for="x in keys" :id="x"></block-part>-->
             <div class="block" v-for="x in keys" v-on:click="tileClick" v-on:contextmenu="flagRightClick"></div>
         </div>
     </div>
@@ -44,62 +43,49 @@
                 
             },
             tileClick(event){
-                if(this.$store.state.isReady === true){
-                    if(!this.$store.state.gameEnd){
-                        if(!event.target.classList.contains("clicked")){
-                            if(event.target.classList.contains("flag")){//this.flagSet
+                if(this.$store.state.isReady === true && !this.$store.state.gameEnd && !event.target.classList.contains("clicked")){
+                            if(event.target.classList.contains("flag")){
                                 return;
                             }
-                            else{
                                 
-                                event.target.innerText = "";
+                            event.target.innerText = "";
 
-                                let divs = document.querySelectorAll(".block");
+                            let divs = document.querySelectorAll(".block");
 
-                                for(let y = 0; y < this.keys.length; y++){
-                                    divs[y].id = this.keys[y];
-                                }
-
-                                event.target.style.backgroundColor = "darkgray";
-
-                                if(this.$data.isStart === false){
-                                    this.$data.difficulty = this.$store.state.diff
-                                    this.placeBombs();
-                                    this.disableSelect();
-                                    this.$data.isStart = true;
-                                    this.timer = window.setInterval(() => this.time++, 1000);
-                                }
-
-                                for(let i = 0; i < this.bombs.length; i++){
-                                    if(event.target.id === this.bombs[i]){
-                                        //event.target.innerText = "B"
-                                        window.clearInterval(this.timer);
-                                        this.$store.state.time = this.time;
-                                        //console.log(this.time);
-                                        this.revealMines();
-                                        this.gameOver = true;
-                                        this.$store.state.gameEnd = true;
-                                        return;
-                                    }        
-                                }   
-
-                                let pos = event.target.id.split("-", 2);
-
-                                //console.log(pos);
-
-                                let r = parseInt(pos[0]);
-                                let c = parseInt(pos[1]);
-
-                                this.checkMine(r, c);
-
-                                //console.log(this.Sdata);
+                            for(let y = 0; y < this.keys.length; y++){
+                                divs[y].id = this.keys[y];
                             }
-                        }else{
-                            return;
-                        }
-                    }else{
-                        return;
-                    }
+
+                            event.target.style.backgroundColor = "darkgray";
+
+                            if(this.$data.isStart === false){
+                                this.$data.difficulty = this.$store.state.diff
+                                this.placeBombs();
+                                this.disableSelect();
+                                this.$data.isStart = true;
+                                this.timer = window.setInterval(() => this.time++, 1000);
+                            }
+
+                            for(let i = 0; i < this.bombs.length; i++){
+                                if(event.target.id === this.bombs[i]){
+                                    window.clearInterval(this.timer);
+                                    this.$store.state.time = this.time;
+                                    //console.log(this.time);
+                                    this.revealMines();
+                                    this.gameOver = true;
+                                    this.$store.state.gameEnd = true;
+                                    return;
+                                }        
+                            }   
+
+                            let pos = event.target.id.split("-", 2);
+
+                            //console.log(pos);
+
+                            let r = parseInt(pos[0]);
+                            let c = parseInt(pos[1]);
+
+                            this.checkMine(r, c);
                 }else{
                     return;
                 }
