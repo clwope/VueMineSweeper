@@ -11,5 +11,7 @@
     "difficulties": ["Select Difficulty", "Easy", "Medium", "Hard"],
     "gameover": "Game Over",
     "playagainButton": "Play Again",
-    "congratulate": "Congratulations"
+    "congratulate": "Congratulations",
+    "time": "Time",
+    "flag": "Flags"
 }
