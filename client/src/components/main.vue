@@ -92,15 +92,6 @@
 
                 },
                 placeBombs(){
-                    if(this.difficulty === "Easy" || this.difficulty === "" || this.difficulty === "Kolay"){
-                        this.mines = 10;
-                    }
-                    else if(this.difficulty === "Medium" || this.difficulty === "Orta"){
-                        this.mines = 25;
-                    }
-                    else if(this.difficulty === "Hard" || this.difficulty === "Zor"){
-                        this.mines = 40;
-                    }
 
                     let count = this.mines;
 
@@ -218,12 +209,6 @@
                     foundBomb.style.backgroundColor = "red";
                     foundBomb.appendChild(imageEL);
                 }
-            },
-            changeRow(val){
-                this.$data.row = val;
-            },
-            changeCol(val){
-                this.$data.column = val;
             },
             newRandomValue(){
                 let r = Math.floor(Math.random() * this.row);

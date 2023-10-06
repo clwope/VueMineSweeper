@@ -23,7 +23,7 @@
         input: "",
         r: 10,
         c: 10,
-        m: 10
+        m: 12
       }
     },
     methods: {
@@ -51,7 +51,7 @@
             // this.$store.state.columns = 10;
             this.r = 10;
             this.c = 10;
-            this.m = 10;
+            this.m = 12;
             let board = document.querySelector(".board");
             board.style.width = "500px";
             board.style.height = "500px";
@@ -73,7 +73,7 @@
             // this.$store.state.columns = 14;
             this.r = 14;
             this.c = 14;
-            this.m = 40;
+            this.m = 50;
             let board = document.querySelector(".board");
             board.style.width = "700px";
             board.style.height = "700px";
