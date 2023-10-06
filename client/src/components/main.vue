@@ -4,10 +4,12 @@
         <div class="info">
             <p ref="p">{{ $t('mines') }}: {{ mines }}</p>
             <p v-if="this.$store.state.diff !== ''">{{ $t('difficulty') }}: {{ this.$store.state.diff  }}</p>
+            <p>{{ $t('time') }} : {{ time }}</p>
         </div>
         <div class="board">
             <div class="block" v-for="x in keys" v-on:click="tileClick" v-on:contextmenu="flagRightClick"></div>
         </div>
+        <p id="flagCounter">{{ $t('flag') }}: {{ flagCount }}</p>
     </div>
 </template>
 
@@ -26,7 +28,8 @@
                 gameOver: false,
                 gameComplete: false,
                 time: 0,
-                timer: null
+                timer: null,
+                flagCount: this.mine
             }
         },
         methods: {
@@ -179,19 +182,25 @@
             },
             flagRightClick(event){
                 event.preventDefault();
-                if(event.target.innerText === ""){
+                if(event.target.innerText === "" && this.$store.state.isReady === true && !this.$store.state.gameEnd){
                     if(event.target.classList.contains("flag")){
                     event.target.innerHTML = "";
                     event.target.classList.remove("flag");
-                    
+                    this.flagCount++;
                     }
                     else{
+                        if(this.$data.flagCount !== 0){
                         event.target.classList.add("flag");
                         let newEl = document.createElement("img");
                         newEl.src = "https://www.svgrepo.com/download/525339/flag.svg";
                         newEl.style.width = "20px";
                         newEl.style.height = "20px";
                         event.target.appendChild(newEl);
+                        this.flagCount--;
+                        }
+                        else{
+                            return;
+                        }
                     }
                 }
                 else{
@@ -262,6 +271,7 @@
             },
             mine: function(val){
                 this.$data.mines = val;
+                this.$data.flagCount = val;
             }
         }
     }
@@ -320,6 +330,14 @@
         height: 30px;
         background-color: red;
         cursor: pointer;
+    }
+
+    #flagCounter{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .x1{

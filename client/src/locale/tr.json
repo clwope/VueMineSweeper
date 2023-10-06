@@ -11,5 +11,7 @@
     "difficulties": ["Zorluk Seç", "Kolay", "Orta", "Zor"],
     "gameover": "Oyun Bitti",
     "playagainButton": "Tekrar Oyna",
-    "congratulate": "Congratulations"
+    "congratulate": "Congratulations",
+    "time": "Süre",
+    "flag": "Bayraklar"
 }
